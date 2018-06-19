@@ -9,7 +9,7 @@ The example below only shows how to implement them in one single machine.
 # Preparation
 
 ## OS
-The application makes use of OpenCPU server runs on **Ubuntu 18.04** or higher. Please make sure you have the appropriate OS before moving forward.
+The application makes use of OpenCPU server runs on **Ubuntu 18.04 LTS**. Please make sure you have the appropriate OS before moving forward.
 
 ## Data file
 The data is stored in an HDF5 file which will be read to redis server (thus stay in memory for the whole time the application is running).
@@ -31,7 +31,10 @@ mkdir -p $program_dir
 sudo apt-get update
 sudo apt-get dist-upgrade -y
 sudo apt-get install -y software-properties-common
-sudo add-apt-repository -y ppa:opencpu/opencpu-1.6
+sudo add-apt-repository -y ppa:opencpu/opencpu-2.0
+```
+OpenCPU-2.0 is used for compatibility with Ubuntu 18.04 LTS. OpenCPU-1.6 is not compatible with this Operating System.
+```bash
 sudo apt-get update
 ```
 ## Install an up-to-date R version
