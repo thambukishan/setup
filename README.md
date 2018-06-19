@@ -38,11 +38,11 @@ OpenCPU-2.0 is used for compatibility with Ubuntu 18.04 LTS. OpenCPU-1.6 is not 
 sudo apt-get update
 ```
 ## Install an up-to-date R version
-
-You may want to revise the mirror link depending on your location and your Ubuntu version.
+You may want to revise the mirror link and/or key depending on your location and your Ubuntu version. Modify arch to either i386 if OS is 32-bit or amd64 if OS is 64-bit.
+For Operating System of Ubuntu 18.04 LTS, use bionic repository for compatibility. Since there is no repository for R version 3.4, make sure to use the bionic cran-35 for R version 3.5.
 
 ```bash
-sudo add-apt-repository -y "deb [arch=amd64] https://cran.cnr.berkeley.edu/bin/linux/ubuntu xenial/"
+sudo add-apt-repository -y "deb [arch=amd64] https://cran.cnr.berkeley.edu/bin/linux/ubuntu bionic-cran35/"
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo apt-get update
 sudo apt-get install -y r-base
