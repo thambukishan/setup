@@ -12,12 +12,8 @@ The example below only shows how to implement them in one single machine.
 The application makes use of OpenCPU server runs on **Ubuntu 18.04 LTS**. Please make sure you have the appropriate OS before moving forward.
 
 ## Data file
-The data is stored in an HDF5 file which will be read to redis server (thus stay in memory for the whole time the application is running).
-Make sure you transfer this file to some place on the server. We recorded the path to this data file in `DATAPATH`
 
-```bash
-DATAPATH='/the/path/to/your/data/GTEx_V6-public.h5'
-```
+NOT WORK YET
 
 ## Give a path on your local machine to download and install the packages
 ```bash
@@ -27,16 +23,17 @@ mkdir -p $program_dir
 # Installation
 
 ## [Optional] Ubuntu upgrade
+
 ```bash
 sudo apt-get update
 sudo apt-get dist-upgrade -y
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y ppa:opencpu/opencpu-2.0
-```
-OpenCPU-2.0 is used for compatibility with Ubuntu 18.04 LTS. OpenCPU-1.6 is not compatible with this Operating System.
-```bash
 sudo apt-get update
 ```
+
+OpenCPU-2.0 is used for compatibility with Ubuntu 18.04 LTS. OpenCPU-1.6 is not compatible with this Operating System.
+
 ## Install an up-to-date R version
 You may want to revise the mirror link and/or key depending on your location and your Ubuntu version. Modify arch to either i386 if OS is 32-bit or amd64 if OS is 64-bit.
 For Operating System of Ubuntu 18.04 LTS, use bionic repository for compatibility. Since there is no repository for R version 3.4, make sure to use the bionic cran-35 for R version 3.5.
@@ -55,9 +52,10 @@ Install using package manager
 sudo apt-get install opencpu
 ```
 
-Start it
+OpenCPU 2.0 has a different way to start. Refer to the documentation here [https://opencpu.github.io/server-manual/opencpu-server.pdf](https://opencpu.github.io/server-manual/opencpu-server.pdf)
+
 ```bash
-sudo service opencpu start
+......................
 ```
 
 And make sure it works
