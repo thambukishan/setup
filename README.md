@@ -45,7 +45,6 @@ sudo apt-get update
 sudo apt-get install -y r-base
 ```
 ## OpenCPU
-
 Install using package manager
 
 ```bash
