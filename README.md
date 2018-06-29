@@ -53,8 +53,15 @@ sudo apt-get install opencpu
 
 OpenCPU 2.0 has a different way to start. Refer to the documentation here [https://opencpu.github.io/server-manual/opencpu-server.pdf](https://opencpu.github.io/server-manual/opencpu-server.pdf)
 
+## Missing Packages
+Install R packages `sys` and `protolite`
 ```bash
-......................
+sudo apt-get install libapparmor-dev
+sudo apt-get install protobuf-compiler
+```
+Install R package dependencies
+```bash
+sudo Rscript -e "install.packages('opencpu',Ncpus=4)"
 ```
 
 And make sure it works
@@ -115,7 +122,7 @@ git clone https://github.com/anexVis/ranexvis.git
 Replace the custom data path and install the package
 
 ```bash
-Rscript -e `printf 'load("data/sysdata.rda");dbpath=list(gtex="%s");save(list=ls(),file="data/sysdata.rda")' $DATAPATH`
+Rscript -e `printf 'load("ranexvis/data/sysdata.rda");dbpath=list(gtex="%s");save(list=ls(),file="ranexvis/data/sysdata.rda")' $DATAPATH`
 sudo Rscript -e "devtools::install('.', quick=TRUE, force_deps=FALSE, upgrade_dependencies=FALSE)"
 ```
 
@@ -126,7 +133,7 @@ sudo sed -i '/preload/ c\    "preload": ["ranexvis", "ggplot2"]' /etc/opencpu/se
 ```
 Restart OpenCPU
 ```bash
-sudo service opencpu restart
+sudo apachectl restart
 ```
 
 From the time OpenCPU server is up, it generally takes about 30 seconds to finish loading the whole data set. Until then, the gene list and other inputs won't be available.
